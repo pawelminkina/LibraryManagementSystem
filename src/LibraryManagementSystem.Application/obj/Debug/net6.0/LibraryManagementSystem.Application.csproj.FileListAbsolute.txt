@@ -1,0 +1,15 @@
+C:\code\entity-framework-presentation\LibraryManagementSystem\LibraryManagementSystem.Application\bin\Debug\net6.0\LibraryManagementSystem.Application.deps.json
+C:\code\entity-framework-presentation\LibraryManagementSystem\LibraryManagementSystem.Application\bin\Debug\net6.0\LibraryManagementSystem.Application.dll
+C:\code\entity-framework-presentation\LibraryManagementSystem\LibraryManagementSystem.Application\bin\Debug\net6.0\LibraryManagementSystem.Application.pdb
+C:\code\entity-framework-presentation\LibraryManagementSystem\LibraryManagementSystem.Application\bin\Debug\net6.0\LibraryManagementSystem.Domain.dll
+C:\code\entity-framework-presentation\LibraryManagementSystem\LibraryManagementSystem.Application\bin\Debug\net6.0\LibraryManagementSystem.Domain.pdb
+C:\code\entity-framework-presentation\LibraryManagementSystem\LibraryManagementSystem.Application\obj\Debug\net6.0\LibraryManagementSystem.Application.csproj.AssemblyReference.cache
+C:\code\entity-framework-presentation\LibraryManagementSystem\LibraryManagementSystem.Application\obj\Debug\net6.0\LibraryManagementSystem.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\code\entity-framework-presentation\LibraryManagementSystem\LibraryManagementSystem.Application\obj\Debug\net6.0\LibraryManagementSystem.Application.AssemblyInfoInputs.cache
+C:\code\entity-framework-presentation\LibraryManagementSystem\LibraryManagementSystem.Application\obj\Debug\net6.0\LibraryManagementSystem.Application.AssemblyInfo.cs
+C:\code\entity-framework-presentation\LibraryManagementSystem\LibraryManagementSystem.Application\obj\Debug\net6.0\LibraryManagementSystem.Application.csproj.CoreCompileInputs.cache
+C:\code\entity-framework-presentation\LibraryManagementSystem\LibraryManagementSystem.Application\obj\Debug\net6.0\LibraryManagementSystem.Application.csproj.CopyComplete
+C:\code\entity-framework-presentation\LibraryManagementSystem\LibraryManagementSystem.Application\obj\Debug\net6.0\LibraryManagementSystem.Application.dll
+C:\code\entity-framework-presentation\LibraryManagementSystem\LibraryManagementSystem.Application\obj\Debug\net6.0\refint\LibraryManagementSystem.Application.dll
+C:\code\entity-framework-presentation\LibraryManagementSystem\LibraryManagementSystem.Application\obj\Debug\net6.0\LibraryManagementSystem.Application.pdb
+C:\code\entity-framework-presentation\LibraryManagementSystem\LibraryManagementSystem.Application\obj\Debug\net6.0\ref\LibraryManagementSystem.Application.dll

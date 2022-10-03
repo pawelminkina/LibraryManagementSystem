@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "ZTw4qk7c6ZpJgQmre4MPt1+t53DHT+y/CgIA9gr1GbI=",
+  "Source": "LibraryManagementSystem.Web",
+  "BasePath": "_content/LibraryManagementSystem.Web",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
