@@ -1,10 +1,9 @@
 ﻿using LibraryManagementSystem.Application.Common.Interfaces;
 using LibraryManagementSystem.Application.Common.Models;
-using LibraryManagementSystem.Domain;
 using LibraryManagementSystem.Domain.Entities;
 using MediatR;
 
-namespace LibraryManagementSystem.Application.Commands;
+namespace LibraryManagementSystem.Application.Commands.AddLibrary;
 
 public record AddLibraryCommand : IRequest
 {
@@ -30,11 +29,12 @@ public class AddLibraryCommandHandler : IRequestHandler<AddLibraryCommand>
         ValidateRequest(request);
 
         _dbContext.Libraries.Add(MapToLibraryEntity(request));
+
         //I can add there as much entities as I want, and after that save changes
         //Thanks to that, it's creating one database transaction even if we're saving not related entities
 
         await _dbContext.SaveChangesAsync(cancellationToken);
-        
+
         return Unit.Value;
     }
 

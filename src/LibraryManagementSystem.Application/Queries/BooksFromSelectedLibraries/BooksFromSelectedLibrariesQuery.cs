@@ -67,13 +67,5 @@ public class BooksFromSelectedLibrariesQueryHandler : IRequestHandler<BooksFromS
         return books.Select(MapToDto);
     }
 
-    private bool TitleStartsWith(string title, string value)
-    {
-        if (string.IsNullOrWhiteSpace(title))
-            return true;
-
-        return title.StartsWith(value);
-    }
-
-    private static BookDto MapToDto(Book book) => new() { Title = book.Title, LibraryId = book.LibraryId.ToString()};
+    private static BookDto MapToDto(Book book) => new() { Id = book.Id.ToString(), Title = book.Title, LibraryId = book.LibraryId.ToString()};
 }

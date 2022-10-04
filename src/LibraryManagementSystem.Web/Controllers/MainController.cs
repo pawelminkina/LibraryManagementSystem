@@ -1,4 +1,5 @@
-﻿using LibraryManagementSystem.Application.Commands;
+﻿using LibraryManagementSystem.Application.Commands.AddLibrary;
+using LibraryManagementSystem.Application.Commands.UpdateBook;
 using LibraryManagementSystem.Application.Common.Models;
 using LibraryManagementSystem.Application.Queries.BooksFromSelectedLibraries;
 using MediatR;
@@ -15,12 +16,13 @@ public class MainController : ControllerBase
     {
         _mediator = mediator;
     }
+
     /// <summary>
     /// Method used to retrieve books in selected libraries combined in collection of titles
     /// <param name="titleStartsWith">This is filter for returning only books which starts with that value, it's optional</param>
     /// </summary>
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<BookDto>>> GetBooksForFixedLibraries(string titleStartsWith)
+    public async Task<ActionResult<IEnumerable<BookDto>>> GetBooksForFixedLibraries([FromQuery] string titleStartsWith)
     {
         //DEMO purpose
         var query = new BooksFromSelectedLibrariesQuery(titleStartsWith, GetFixedLibraryIds());
@@ -34,7 +36,15 @@ public class MainController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> AddLibrary(AddLibraryCommand command)
+    public async Task<IActionResult> AddLibrary([FromBody] AddLibraryCommand command)
+    {
+        await _mediator.Send(command);
+
+        return NoContent();
+    }
+
+    [HttpPut]
+    public async Task<IActionResult> UpdateBook([FromBody] UpdateBookCommand command)
     {
         await _mediator.Send(command);
 

@@ -15,4 +15,8 @@
 	  <ProjectReference Include="..\LibraryManagementSystem.Domain\LibraryManagementSystem.Domain.csproj" />
 	</ItemGroup>
 	
+	<ItemGroup>
+	  <Folder Include="Commands\UpdateBook\" />
+	</ItemGroup>
+	
 </Project>

@@ -1,4 +1,4 @@
-﻿using LibraryManagementSystem.Application.Commands;
+﻿using LibraryManagementSystem.Application.Commands.AddLibrary;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 
