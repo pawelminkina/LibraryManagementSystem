@@ -1,6 +1,11 @@
-﻿using LibraryManagementSystem.Application.Common.Interfaces;
+﻿using System.Runtime.CompilerServices;
+using LibraryManagementSystem.Application.Common.Interfaces;
+using LibraryManagementSystem.Domain.Entities;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+[assembly: InternalsVisibleTo("LibraryManagementSystem.Tests")]
+[assembly: InternalsVisibleTo("DynamicProxyGenAssembly2")]
+
 
 namespace LibraryManagementSystem.Application.Commands.UpdateBook;
 
@@ -29,10 +34,7 @@ public class UpdateBookCommandHandler : IRequestHandler<UpdateBookCommand>
         if (string.IsNullOrWhiteSpace(request.NewTitle))
             throw new ArgumentException("Given title for book is empty");
 
-        var bookToUpdate = await _dbContext.Books.FirstOrDefaultAsync(s => s.Id == request.BookId, cancellationToken);
-
-        if (bookToUpdate is null)
-            throw new ArgumentException($"Book with given id: {request.BookId} does not exist in database");
+        var bookToUpdate = await GetBookToUpdate(request.BookId, cancellationToken);
 
         bookToUpdate.Title = request.NewTitle;
 
@@ -40,5 +42,15 @@ public class UpdateBookCommandHandler : IRequestHandler<UpdateBookCommand>
         //await _dbContext.SaveChangesAsync(cancellationToken);
 
         return Unit.Value;
+    }
+
+    internal Task<Book> GetBookToUpdate(Guid bookId, CancellationToken ct)
+    {
+        var bookToUpdate = _dbContext.Books.FirstOrDefault(s => s.Id == bookId);
+
+        if (bookToUpdate is null)
+            throw new ArgumentException($"Book with given id: {bookId} does not exist in database");
+
+        return Task.FromResult(bookToUpdate);
     }
 }

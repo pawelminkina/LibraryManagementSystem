@@ -1,0 +1,113 @@
+{
+	"info": {
+		"_postman_id": "f1e4cea2-16c6-4e9d-9647-5c22ad3d9d33",
+		"name": "Library Managament system",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get books where title starts with \"S\"",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5185/api/main?titleStartsWith=S",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5185",
+					"path": [
+						"api",
+						"main"
+					],
+					"query": [
+						{
+							"key": "titleStartsWith",
+							"value": "S"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All books",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5185/api/main",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5185",
+					"path": [
+						"api",
+						"main"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add library",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Name\": \"New lib 1\",\r\n    \"Books\": [\r\n        {\r\n            \"Title\": \"New book 1\"\r\n        },\r\n        {\r\n            \"Title\": \"New book 2\"\r\n        },\r\n        {\r\n            \"Title\": \"New book 3\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5185/api/main",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5185",
+					"path": [
+						"api",
+						"main"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"BookId\": \"73e03a55-d760-4415-aeb5-743e9dd79f20\",\r\n    \"NewTitle\": \"New title for book 2\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5185/api/main",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5185",
+					"path": [
+						"api",
+						"main"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

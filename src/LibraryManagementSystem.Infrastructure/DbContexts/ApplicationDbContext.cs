@@ -8,11 +8,11 @@ namespace LibraryManagementSystem.Infrastructure.DbContexts;
 
 public class ApplicationDbContext : DbContext, IApplicationDbContext
 {
-    private readonly IOptions<DatabaseOptions>? _options;
+    private readonly IOptions<DatabaseOptions>? _databaseOptions;
 
-    public ApplicationDbContext(IOptions<DatabaseOptions> options)
+    public ApplicationDbContext(DbContextOptions options, IOptions<DatabaseOptions> databaseOptions) : base(options)
     {
-        _options = options;
+        _databaseOptions = databaseOptions;
     }
 
     public ApplicationDbContext()
@@ -26,10 +26,10 @@ public class ApplicationDbContext : DbContext, IApplicationDbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         //For test purpose
-        if (_options is null)
+        if (_databaseOptions is null)
             return;
 
-        optionsBuilder.UseSqlServer(_options.Value.ConnectionString!);
+        optionsBuilder.UseSqlServer(_databaseOptions.Value.ConnectionString!);
 
         base.OnConfiguring(optionsBuilder);
     }
