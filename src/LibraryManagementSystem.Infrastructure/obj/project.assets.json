@@ -2022,7 +2022,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\pavixonpl\\.nuget\\packages\\": {},
+    "C:\\Users\\Happy team\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
@@ -2032,7 +2032,7 @@
       "projectUniqueName": "C:\\code\\efpres\\LibraryManagementSystem\\src\\LibraryManagementSystem.Infrastructure\\LibraryManagementSystem.Infrastructure.csproj",
       "projectName": "LibraryManagementSystem.Infrastructure",
       "projectPath": "C:\\code\\efpres\\LibraryManagementSystem\\src\\LibraryManagementSystem.Infrastructure\\LibraryManagementSystem.Infrastructure.csproj",
-      "packagesPath": "C:\\Users\\pavixonpl\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\Happy team\\.nuget\\packages\\",
       "outputPath": "C:\\code\\efpres\\LibraryManagementSystem\\src\\LibraryManagementSystem.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
@@ -2040,7 +2040,7 @@
         "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\pavixonpl\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Happy team\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
@@ -2050,7 +2050,9 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {},
+        "https://nuget.telerik.com/v3/index.json": {},
+        "https://pkgs.dev.azure.com/royalmailgroup/_packaging/RoyalMail/nuget/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
