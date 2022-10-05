@@ -1,0 +1,7 @@
+Total basics: https://app.pluralsight.com/library/courses/ef-core-6-fundamentals/table-of-contents
+Really good course about encapsulating: https://app.pluralsight.com/library/courses/ef-core-6-encapsulating-usage/table-of-contents
+Other Vladimir Khorikov courses are also great like, I've watched: DDD and EF Core 3: Preserving Encapsulation, Domain-Driven Design: Working with Legacy Projects and really highly recommend
+Really good materials, for example for different possibilities in EF you can find there: https://www.entityframeworktutorial.net/efcore/entity-framework-core.aspx but sometimes I'm using https://www.learnentityframeworkcore.com/ too; both of them are great quality courses.
+And of course never beaten MSDN: https://docs.microsoft.com/en-us/ef/core/. Tons of good materials
+EF core github: https://github.com/dotnet/efcore Good way to find possible solutions for problem, not only in discussion but in current implementations.
+Last but not least great usage of entity framework in Microsoft project Eshop On Containers (Orderding service has some nice features like for ex. private foreign keys): https://github.com/dotnet-architecture/eShopOnContainers
