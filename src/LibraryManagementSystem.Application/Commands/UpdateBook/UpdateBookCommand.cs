@@ -38,8 +38,7 @@ public class UpdateBookCommandHandler : IRequestHandler<UpdateBookCommand>
 
         bookToUpdate.Title = request.NewTitle;
 
-        //commented for demo purpose, uncomment if you want it to work
-        //await _dbContext.SaveChangesAsync(cancellationToken);
+        await _dbContext.SaveChangesAsync(cancellationToken);
 
         return Unit.Value;
     }

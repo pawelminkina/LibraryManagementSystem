@@ -16,6 +16,10 @@ public class BookEntityConfiguration : IEntityTypeConfiguration<Book>
             .WithMany(s => s.Books)
             .HasForeignKey(s => s.LibraryId);
 
+        builder.HasMany(s => s.Pages)
+            .WithOne(s => s.Book)
+            .HasForeignKey(s => s.BookId);
+
         builder.HasData(
             new Book()
             {
