@@ -21,6 +21,8 @@ public class ApplicationDbContext : DbContext, IApplicationDbContext
     }
 
     public DbSet<Book> Books { get; set; } = null!;
+    public DbSet<Page> Pages { get; set; } = null!;
+    public DbSet<LibraryGroup> LibraryGroups { get; set; } = null!;
     public DbSet<Library> Libraries { get; set; } = null!;
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

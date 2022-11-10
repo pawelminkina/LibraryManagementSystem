@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LibraryManagementSystem.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221110141714_init")]
-    partial class init
+    [Migration("20221110143456_Init")]
+    partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -152,7 +152,7 @@ namespace LibraryManagementSystem.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("LibraryGroup");
+                    b.ToTable("LibraryGroups");
 
                     b.HasData(
                         new
@@ -186,7 +186,7 @@ namespace LibraryManagementSystem.Infrastructure.Migrations
 
                     b.HasIndex("BookId");
 
-                    b.ToTable("Page");
+                    b.ToTable("Pages");
 
                     b.HasData(
                         new

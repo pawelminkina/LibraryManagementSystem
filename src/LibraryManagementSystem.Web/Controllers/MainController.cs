@@ -2,6 +2,7 @@
 using LibraryManagementSystem.Application.Commands.UpdateBook;
 using LibraryManagementSystem.Application.Common.Models;
 using LibraryManagementSystem.Application.Queries.BooksFromSelectedLibraries;
+using LibraryManagementSystem.Application.Queries.PagesFromLibraryGroup;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -24,7 +25,6 @@ public class MainController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<BookDto>>> GetBooksForFixedLibraries([FromQuery] string titleStartsWith)
     {
-        //DEMO purpose
         var query = new BooksFromSelectedLibrariesQuery(titleStartsWith, GetFixedLibraryIds());
 
         var res = await _mediator.Send(query);
@@ -33,6 +33,12 @@ public class MainController : ControllerBase
             return NotFound();
 
         return Ok(res);
+    }
+
+    [HttpGet("BooksFromLibraryGroup")]
+    public async Task<ActionResult<BooksFromLibraryGroupQueryDto>> GetBooksFromLibraryGroup([FromQuery] Guid groupId)
+    {
+        return Ok(await _mediator.Send(new BooksFromLibraryGroupQuery(groupId)));
     }
 
     [HttpPost]

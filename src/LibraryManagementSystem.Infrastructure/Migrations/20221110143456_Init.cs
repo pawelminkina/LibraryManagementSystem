@@ -5,12 +5,12 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace LibraryManagementSystem.Infrastructure.Migrations
 {
-    public partial class init : Migration
+    public partial class Init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "LibraryGroup",
+                name: "LibraryGroups",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
@@ -18,7 +18,7 @@ namespace LibraryManagementSystem.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_LibraryGroup", x => x.Id);
+                    table.PrimaryKey("PK_LibraryGroups", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -33,9 +33,9 @@ namespace LibraryManagementSystem.Infrastructure.Migrations
                 {
                     table.PrimaryKey("PK_Libraries", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Libraries_LibraryGroup_LibraryGroupId",
+                        name: "FK_Libraries_LibraryGroups_LibraryGroupId",
                         column: x => x.LibraryGroupId,
-                        principalTable: "LibraryGroup",
+                        principalTable: "LibraryGroups",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -60,7 +60,7 @@ namespace LibraryManagementSystem.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Page",
+                name: "Pages",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
@@ -70,9 +70,9 @@ namespace LibraryManagementSystem.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Page", x => x.Id);
+                    table.PrimaryKey("PK_Pages", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Page_Books_BookId",
+                        name: "FK_Pages_Books_BookId",
                         column: x => x.BookId,
                         principalTable: "Books",
                         principalColumn: "Id",
@@ -80,12 +80,12 @@ namespace LibraryManagementSystem.Infrastructure.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "LibraryGroup",
+                table: "LibraryGroups",
                 columns: new[] { "Id", "Name" },
                 values: new object[] { new Guid("7e281174-5f21-497b-a1ff-641ac1aff60e"), "Group 2" });
 
             migrationBuilder.InsertData(
-                table: "LibraryGroup",
+                table: "LibraryGroups",
                 columns: new[] { "Id", "Name" },
                 values: new object[] { new Guid("e7b2e4ff-9c8a-45c4-aec5-f949d419b9c0"), "Group 1" });
 
@@ -121,7 +121,7 @@ namespace LibraryManagementSystem.Infrastructure.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "Page",
+                table: "Pages",
                 columns: new[] { "Id", "BookId", "Content", "Number" },
                 values: new object[,]
                 {
@@ -165,15 +165,15 @@ namespace LibraryManagementSystem.Infrastructure.Migrations
                 column: "LibraryGroupId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Page_BookId",
-                table: "Page",
+                name: "IX_Pages_BookId",
+                table: "Pages",
                 column: "BookId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Page");
+                name: "Pages");
 
             migrationBuilder.DropTable(
                 name: "Books");
@@ -182,7 +182,7 @@ namespace LibraryManagementSystem.Infrastructure.Migrations
                 name: "Libraries");
 
             migrationBuilder.DropTable(
-                name: "LibraryGroup");
+                name: "LibraryGroups");
         }
     }
 }

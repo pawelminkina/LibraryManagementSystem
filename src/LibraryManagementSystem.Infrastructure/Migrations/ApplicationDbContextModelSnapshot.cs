@@ -150,7 +150,7 @@ namespace LibraryManagementSystem.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("LibraryGroup");
+                    b.ToTable("LibraryGroups");
 
                     b.HasData(
                         new
@@ -184,7 +184,7 @@ namespace LibraryManagementSystem.Infrastructure.Migrations
 
                     b.HasIndex("BookId");
 
-                    b.ToTable("Page");
+                    b.ToTable("Pages");
 
                     b.HasData(
                         new

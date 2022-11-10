@@ -26,6 +26,7 @@
 
 	<ItemGroup>
 	  <Folder Include="DbContexts\Configurations\ApplicationDbContextConfiguration\" />
+	  <Folder Include="Repositories\" />
 	  <Folder Include="POCO\" />
 	</ItemGroup>
 
