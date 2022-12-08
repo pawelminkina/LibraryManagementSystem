@@ -7,6 +7,8 @@
   </PropertyGroup>
 
 	<ItemGroup>
+		<PackageReference Include="Azure.Storage.Blobs" Version="12.14.1" />
+		<PackageReference Include="Microsoft.Azure.Cosmos" Version="3.31.2" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.9">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -26,8 +28,9 @@
 
 	<ItemGroup>
 	  <Folder Include="DbContexts\Configurations\ApplicationDbContextConfiguration\" />
+	  <Folder Include="Documents\Models\" />
+	  <Folder Include="Files\" />
 	  <Folder Include="Repositories\" />
-	  <Folder Include="POCO\" />
 	</ItemGroup>
 
 </Project>

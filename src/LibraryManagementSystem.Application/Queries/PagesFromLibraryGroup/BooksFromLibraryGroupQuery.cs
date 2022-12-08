@@ -65,8 +65,8 @@ public record BooksFromLibraryGroupQuery : IRequest<BooksFromLibraryGroupQueryDt
 //        //If we want to use external method to map, we've to use includes too
 //        var librariesWithBooks = await _dbContext
 //            .Libraries.Where(s => s.LibraryGroup.Id == request.GroupId)
-//            .Include(s=>s.Books)
-//            .ThenInclude(s=>s.Pages)
+//            .Include(s => s.Books)
+//            .ThenInclude(s => s.Pages)
 //            .Select(s => MapToDto(s))
 //            .ToListAsync(cancellationToken);
 
@@ -93,7 +93,7 @@ public class BooksFromLibraryGroupQueryHandler : IRequestHandler<BooksFromLibrar
     public async Task<BooksFromLibraryGroupQueryDto> Handle(BooksFromLibraryGroupQuery request, CancellationToken cancellationToken)
     {
         //Even though syntax looks better for FirstOrDefault(s => s.Id == request.GroupId), using the one below is more efficient in Database
-        var libraryGroupName = _dbContext.LibraryGroups.Where(a=>a.Id == request.GroupId).Select(s=>s.Name).FirstOrDefault();
+        var libraryGroupName = _dbContext.LibraryGroups.Where(a => a.Id == request.GroupId).Select(s => s.Name).FirstOrDefault();
         if (string.IsNullOrEmpty(libraryGroupName))
             throw new ArgumentException("Given library group id is not correct");
 

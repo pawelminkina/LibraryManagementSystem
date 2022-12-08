@@ -1,5 +1,7 @@
 ﻿using LibraryManagementSystem.Application.Commands.AddLibrary;
 using LibraryManagementSystem.Application.Commands.UpdateBook;
+using LibraryManagementSystem.Application.Commands.UploadBookDocument;
+using LibraryManagementSystem.Application.Commands.UploadBookFile;
 using LibraryManagementSystem.Application.Common.Models;
 using LibraryManagementSystem.Application.Queries.BooksFromSelectedLibraries;
 using LibraryManagementSystem.Application.Queries.PagesFromLibraryGroup;
@@ -47,6 +49,22 @@ public class MainController : ControllerBase
         await _mediator.Send(command);
 
         return NoContent();
+    }
+
+    [HttpPost("File")]
+    public async Task<IActionResult> UploadFile(IFormFile file, [FromForm] string fileName)
+    {
+        await _mediator.Send(new UploadBookFileCommand(file.OpenReadStream(), fileName));
+
+        return NoContent();
+    }
+
+    [HttpPost("Document")]
+    public async Task<IActionResult> UploadDocument(IFormFile file)
+    {
+        var name = await _mediator.Send(new UploadBookDocumentCommand(file.OpenReadStream()));
+
+        return Ok(name);
     }
 
     [HttpPut]

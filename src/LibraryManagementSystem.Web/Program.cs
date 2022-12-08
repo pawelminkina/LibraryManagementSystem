@@ -1,5 +1,6 @@
 using LibraryManagementSystem.Application;
 using LibraryManagementSystem.Infrastructure;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +13,11 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddApplication();
 builder.Services.AddInfrastructure(builder.Configuration);
+
+builder.Services.Configure<KestrelServerOptions>(options =>
+{
+    options.Limits.MaxRequestBodySize = int.MaxValue; // if don't set default value is: 30 MB
+});
 
 var app = builder.Build();
 

@@ -2,7 +2,6 @@
 using LibraryManagementSystem.Application.Common.Interfaces;
 using LibraryManagementSystem.Domain.Entities;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 [assembly: InternalsVisibleTo("LibraryManagementSystem.Tests")]
 [assembly: InternalsVisibleTo("DynamicProxyGenAssembly2")]
 

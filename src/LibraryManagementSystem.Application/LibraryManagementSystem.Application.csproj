@@ -16,8 +16,11 @@
 	</ItemGroup>
 	
 	<ItemGroup>
+	  <Folder Include="Commands\UploadBookDocument\" />
 	  <Folder Include="Commands\UpdateBook\" />
 	  <Folder Include="Queries\FirstLettersFromPage\" />
+	  <Folder Include="Services\Files\" />
+	  <Folder Include="Services\Documents\" />
 	</ItemGroup>
 	
 </Project>
