@@ -4,19 +4,19 @@ using MediatR;
 namespace LibraryManagementSystem.Application.Commands.UploadBookFile;
 
 //used for azure emulators presentation
-public class UploadBookFileCommand : IRequest
+public class UploadBookFileCommand : IRequest<string>
 {
     public Stream Content { get; }
-    public string Name { get; }
+    public string Extension { get; }
 
-    public UploadBookFileCommand(Stream content, string name)
+    public UploadBookFileCommand(Stream content, string extension)
     {
         Content = content;
-        Name = name;
+        Extension = extension;
     }
 }
 
-public class UploadBookFileCommandHandler : IRequestHandler<UploadBookFileCommand>
+public class UploadBookFileCommandHandler : IRequestHandler<UploadBookFileCommand, string>
 {
     private readonly IFileService _fileService;
 
@@ -24,10 +24,10 @@ public class UploadBookFileCommandHandler : IRequestHandler<UploadBookFileComman
     {
         _fileService = fileService;
     }
-    public async Task<Unit> Handle(UploadBookFileCommand request, CancellationToken cancellationToken)
+    public async Task<string> Handle(UploadBookFileCommand request, CancellationToken cancellationToken)
     {
-        await _fileService.UploadFile(request.Content, request.Name);
+        var fileName = await _fileService.UploadFile(request.Content, request.Extension);
         
-        return Unit.Value;
+        return fileName;
     }
 }

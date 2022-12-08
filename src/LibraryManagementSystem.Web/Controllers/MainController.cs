@@ -1,10 +1,7 @@
-﻿using LibraryManagementSystem.Application.Commands.AddLibrary;
-using LibraryManagementSystem.Application.Commands.UpdateBook;
-using LibraryManagementSystem.Application.Commands.UploadBookDocument;
+﻿using LibraryManagementSystem.Application.Commands.UploadBookDocument;
 using LibraryManagementSystem.Application.Commands.UploadBookFile;
 using LibraryManagementSystem.Application.Common.Models;
-using LibraryManagementSystem.Application.Queries.BooksFromSelectedLibraries;
-using LibraryManagementSystem.Application.Queries.PagesFromLibraryGroup;
+using LibraryManagementSystem.Application.Queries.AvailableBooks;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,14 +17,10 @@ public class MainController : ControllerBase
         _mediator = mediator;
     }
 
-    /// <summary>
-    /// Method used to retrieve books in selected libraries combined in collection of titles
-    /// <param name="titleStartsWith">This is filter for returning only books which starts with that value, it's optional</param>
-    /// </summary>
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<BookDto>>> GetBooksForFixedLibraries([FromQuery] string titleStartsWith)
+    public async Task<ActionResult<IEnumerable<BookDto>>> GetAvailableBooks()
     {
-        var query = new BooksFromSelectedLibrariesQuery(titleStartsWith, GetFixedLibraryIds());
+        var query = new AvailableBooksQuery();
 
         var res = await _mediator.Send(query);
 
@@ -37,26 +30,13 @@ public class MainController : ControllerBase
         return Ok(res);
     }
 
-    [HttpGet("BooksFromLibraryGroup")]
-    public async Task<ActionResult<BooksFromLibraryGroupQueryDto>> GetBooksFromLibraryGroup([FromQuery] Guid groupId)
-    {
-        return Ok(await _mediator.Send(new BooksFromLibraryGroupQuery(groupId)));
-    }
-
-    [HttpPost]
-    public async Task<IActionResult> AddLibrary([FromBody] AddLibraryCommand command)
-    {
-        await _mediator.Send(command);
-
-        return NoContent();
-    }
-
     [HttpPost("File")]
-    public async Task<IActionResult> UploadFile(IFormFile file, [FromForm] string fileName)
+    public async Task<IActionResult> UploadFile(IFormFile file)
     {
-        await _mediator.Send(new UploadBookFileCommand(file.OpenReadStream(), fileName));
+        var extension = Path.GetExtension(file.FileName);
+        var fileName = await _mediator.Send(new UploadBookFileCommand(file.OpenReadStream(), extension));
 
-        return NoContent();
+        return Ok(fileName);
     }
 
     [HttpPost("Document")]
@@ -66,19 +46,4 @@ public class MainController : ControllerBase
 
         return Ok(name);
     }
-
-    [HttpPut]
-    public async Task<IActionResult> UpdateBook([FromBody] UpdateBookCommand command)
-    {
-        await _mediator.Send(command);
-
-        return NoContent();
-    }
-
-    private static IEnumerable<Guid> GetFixedLibraryIds() => new[]
-    {
-            Guid.Parse("7a6a4c0a-a8ae-452a-ab6d-2e43a2cc1ffb"),
-            Guid.Parse("adea7009-34c0-4aa4-8284-d76757d2d5f2"),
-            Guid.Parse("9162218a-aefd-46a4-ba6d-2bb0b02ba8ea")
-    };
 }

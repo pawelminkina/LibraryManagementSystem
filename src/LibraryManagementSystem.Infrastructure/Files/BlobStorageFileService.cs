@@ -18,9 +18,11 @@ public class BlobStorageFileService : IFileService
         _options = options.Value;
     }
 
-    public async Task UploadFile(Stream content, string filename)
+    public async Task<string> UploadFile(Stream content, string extension)
     {
-        var blobClient = new BlobClient(_options.ConnectionString, _options.DefaultContainer, filename);
+        var fileName = Guid.NewGuid() + extension;
+
+        var blobClient = new BlobClient(_options.ConnectionString, _options.DefaultContainer, fileName);
 
         var timer = Stopwatch.StartNew();
 
@@ -33,6 +35,8 @@ public class BlobStorageFileService : IFileService
         _logger.LogInformation($"Time to upload file: {timer.ElapsedMilliseconds} ms");
         
         CheckResponse(status);
+
+        return fileName;
     }
 
     private static void CheckResponse(int statusCode)

@@ -41,23 +41,9 @@ public class CosmosDbBookDocumentService : IBookDocumentService
 
     public static T Deserialize<T>(Stream s)
     {
-        using (StreamReader reader = new StreamReader(s))
-        using (JsonTextReader jsonReader = new JsonTextReader(reader))
-        {
-            JsonSerializer ser = new JsonSerializer();
-            return ser.Deserialize<T>(jsonReader);
-        }
-    }
-
-    //used for measurements
-    private static async Task InvokeCreateItem(UsedModel model, Container container, int howManyTimes)
-    {
-        for (var i = 0; i < howManyTimes; i++)
-        {
-            var id = i.ToString();
-            model.Id = Guid.NewGuid().ToString();
-            model.PartitionKey = string.Empty;
-            await container.CreateItemAsync(model, new PartitionKey(string.Empty));
-        }
+        using var reader = new StreamReader(s);
+        using var jsonReader = new JsonTextReader(reader);
+        var ser = new JsonSerializer();
+        return ser.Deserialize<T>(jsonReader);
     }
 }

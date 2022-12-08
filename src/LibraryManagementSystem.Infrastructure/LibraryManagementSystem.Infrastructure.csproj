@@ -30,7 +30,6 @@
 	  <Folder Include="DbContexts\Configurations\ApplicationDbContextConfiguration\" />
 	  <Folder Include="Documents\Models\" />
 	  <Folder Include="Files\" />
-	  <Folder Include="Repositories\" />
 	</ItemGroup>
 
 </Project>

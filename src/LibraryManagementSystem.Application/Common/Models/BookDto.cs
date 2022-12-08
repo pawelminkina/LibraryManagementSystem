@@ -2,6 +2,6 @@
 public record BookDto
 {
     public string? Id { get; set; }
-    public string? LibraryId { get; set; }
+    public string? Content { get; set; }
     public string? Title { get; set; }
 }

@@ -2,5 +2,5 @@
 
 public interface IFileService
 {
-    Task UploadFile(Stream content, string filename);
+    Task<string> UploadFile(Stream content, string extension);
 }
